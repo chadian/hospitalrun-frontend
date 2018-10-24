@@ -1,6 +1,6 @@
 import AbstractEditRoute from 'hospitalrun/routes/abstract-edit-route';
 import Ember from 'ember';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 export default AbstractEditRoute.extend({
   editTitle: t('inventory.titles.editRequest'),
   modelName: 'inv-request',

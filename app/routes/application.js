@@ -24,10 +24,10 @@ let ApplicationRoute = Route.extend(ApplicationRouteMixin, ModalHelper, SetupUse
 
     error(reason, transition) {
       if (reason instanceof UnauthorizedError) {
-        let i18n = this.get('i18n');
-        let message = i18n.t('application.messages.sessionExpired');
+        let intl = this.get('intl');
+        let message = intl.t('application.messages.sessionExpired');
         let session = get(this, 'session');
-        let title = i18n.t('application.titles.sessionExpired');
+        let title = intl.t('application.titles.sessionExpired');
         if (!isEmpty(transition)) {
           let sessionStore = session.get('store');
           let sessionData = session.get('data');
@@ -107,8 +107,8 @@ let ApplicationRoute = Route.extend(ApplicationRouteMixin, ModalHelper, SetupUse
     set(this.controllerFor('navigation'), 'allowSearch', false);
     $('#apploading').remove();
     this.get('config.configDB').get('current_user').then((user) => {
-      let language = user.i18n || 'en';
-      this.set('i18n.locale', language);
+      let language = user.intl || 'en';
+      this.set('intl.locale', language);
     });
   },
 

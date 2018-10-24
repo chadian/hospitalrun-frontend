@@ -113,9 +113,9 @@ export default Ember.Controller.extend(DateFormat, ModalHelper, NumberFormat, Pa
   },
 
   _notifyReportError(errorMessage) {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     this.closeProgressModal();
-    this.displayAlert(i18n.t('alerts.reportError'), i18n.t('messages.reportError'));
+    this.displayAlert(intl.t('alerts.reportError'), intl.t('messages.reportError'));
     throw new Error(errorMessage);
   },
 
@@ -145,7 +145,7 @@ export default Ember.Controller.extend(DateFormat, ModalHelper, NumberFormat, Pa
 
     let reportDesc = reportTypes.findBy('value', reportType);
     if (Ember.isEmpty(startDate)) {
-      this.set('reportTitle', this.get('i18n').t(
+      this.set('reportTitle', this.get('intl').t(
         'inventory.reports.titleSingleDate',
         {
           name: reportDesc.name,
@@ -154,7 +154,7 @@ export default Ember.Controller.extend(DateFormat, ModalHelper, NumberFormat, Pa
       ));
     } else {
       formattedStartDate = moment(startDate).format('l');
-      this.set('reportTitle', this.get('i18n').t(
+      this.set('reportTitle', this.get('intl').t(
         'inventory.reports.titleDateRange',
         {
           name: reportDesc.name,

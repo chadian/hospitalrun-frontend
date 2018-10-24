@@ -11,7 +11,7 @@ const {
 } = Ember;
 
 export default Component.extend({
-  i18n: inject.service(),
+  intl: inject.service(),
   store: inject.service(),
 
   userText: '',
@@ -121,22 +121,22 @@ export default Component.extend({
   expansionText: computed('possibleSwaps', 'activeExpansionSite', 'userText', function() {
     let result = '';
 
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     let possibleSwaps = this.get('possibleSwaps');
     if (possibleSwaps) {
       let activeSite = this.get('activeExpansionSite');
 
       if (possibleSwaps.length === 1) {
         let swapTo = possibleSwaps[0].to;
-        result = i18n.t('admin.textReplacements.performExpand', { from: activeSite.term, to: swapTo });
+        result = intl.t('admin.textReplacements.performExpand', { from: activeSite.term, to: swapTo });
       } else if (possibleSwaps.length > 1) {
         let possible = possibleSwaps
           .map((swap) => {
             return swap.from;
           }).join(', ');
-        result = i18n.t('admin.textReplacements.possibleExpansions', { possible });
+        result = intl.t('admin.textReplacements.possibleExpansions', { possible });
       } else {
-        result = i18n.t('admin.textReplacements.noMatches', { term: activeSite.term });
+        result = intl.t('admin.textReplacements.noMatches', { term: activeSite.term });
       }
     }
 

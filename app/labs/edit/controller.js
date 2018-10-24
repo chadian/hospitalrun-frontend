@@ -70,13 +70,13 @@ export default AbstractEditController.extend(ChargeActions, PatientSubmodule, {
   additionalButtons: function() {
     let canComplete = this.get('canComplete');
     let isValid = this.get('model.isValid');
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     if (isValid && canComplete) {
       return [{
         buttonAction: 'completeLab',
         buttonIcon: 'glyphicon glyphicon-ok',
         class: 'btn btn-primary on-white',
-        buttonText: i18n.t('buttons.complete')
+        buttonText: intl.t('buttons.complete')
       }];
     }
   }.property('canComplete', 'model.isValid'),
@@ -89,14 +89,14 @@ export default AbstractEditController.extend(ChargeActions, PatientSubmodule, {
   updateCapability: 'add_lab',
 
   afterUpdate(saveResponse, multipleRecords) {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     let afterDialogAction, alertMessage, alertTitle;
     if (this.get('model.status') === 'Completed') {
-      alertTitle = i18n.t('labs.alerts.requestCompletedTitle');
-      alertMessage = i18n.t('labs.alerts.requestCompletedMessage');
+      alertTitle = intl.t('labs.alerts.requestCompletedTitle');
+      alertMessage = intl.t('labs.alerts.requestCompletedMessage');
     } else {
-      alertTitle = i18n.t('labs.alerts.requestSavedTitle');
-      alertMessage = i18n.t('labs.alerts.requestSavedMessage');
+      alertTitle = intl.t('labs.alerts.requestSavedTitle');
+      alertMessage = intl.t('labs.alerts.requestSavedMessage');
     }
     if (multipleRecords) {
       afterDialogAction = this.get('cancelAction');

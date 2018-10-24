@@ -7,7 +7,7 @@ const {
 } = Ember;
 
 export default Ember.Component.extend({
-  i18n: Ember.inject.service(),
+  intl: Ember.inject.service(),
   dateTimePickerDate: null,
   datePickerClass: '',
   endDate: Ember.computed.alias('model.endDate'),
@@ -35,20 +35,20 @@ export default Ember.Component.extend({
   hourList: computed(function() {
     let hour;
     let hourList = [];
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     for (hour = 0; hour < 24; hour++) {
       let hourText;
       let hourProp = {
         hour: (hour % 12) // Show hour in 12 hour am/pm format
       };
       if (hour === 0) {
-        hourText = i18n.t('components.dateTimePicker.midnight');
+        hourText = intl.t('components.dateTimePicker.midnight');
       } else if (hour === 12) {
-        hourText = i18n.t('components.dateTimePicker.noon');
+        hourText = intl.t('components.dateTimePicker.noon');
       } else if (hour < 12) {
-        hourText = i18n.t('components.dateTimePicker.amHour', hourProp);
+        hourText = intl.t('components.dateTimePicker.amHour', hourProp);
       } else {
-        hourText = i18n.t('components.dateTimePicker.pmHour', hourProp);
+        hourText = intl.t('components.dateTimePicker.pmHour', hourProp);
       }
       hourList.push({
         name: hourText,

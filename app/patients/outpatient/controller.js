@@ -22,17 +22,17 @@ export default Ember.Controller.extend(FilterList, ModalHelper, PatientVisits, S
     return this.currentUserCan('add_visit');
   }),
   hasAppointmentLabels: computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return [
-      i18n.t('visits.labels.haveAppointment'),
-      i18n.t('visits.labels.noAppointment')
+      intl.t('visits.labels.haveAppointment'),
+      intl.t('visits.labels.noAppointment')
     ];
   }),
   doneOrdersValues: computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return [
-      i18n.t('visits.labels.ordersNotDone'),
-      i18n.t('visits.labels.haveDoneOrders')
+      intl.t('visits.labels.ordersNotDone'),
+      intl.t('visits.labels.haveDoneOrders')
     ];
   }),
   locationList: Ember.computed.map('patientController.locationList.value', SelectValues.selectValuesMap).volatile(),
@@ -72,10 +72,10 @@ export default Ember.Controller.extend(FilterList, ModalHelper, PatientVisits, S
   startKey: [],
   actions: {
     checkOut(visit) {
-      let i18n = this.get('i18n');
+      let intl = this.get('intl');
       let patientDetails = { patientName: visit.get('patient.displayName') };
-      let confirmMessage =  i18n.t('visits.messages.checkOut', patientDetails);
-      this.displayConfirm(i18n.t('visits.titles.checkOut'), confirmMessage,
+      let confirmMessage =  intl.t('visits.messages.checkOut', patientDetails);
+      this.displayConfirm(intl.t('visits.titles.checkOut'), confirmMessage,
         'finishCheckOut', visit);
     },
 

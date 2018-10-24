@@ -17,7 +17,7 @@ export default AbstractEditController.extend({
     let customForms = this.get('customForms');
     let model = this.get('model');
     customForms.resetCustomFormByType(model.get('formType'));
-    this.displayAlert(this.get('i18n').t('admin.customForms.titles.formSaved'), this.get('i18n').t('admin.customForms.messages.formSaved', this.get('model')));
+    this.displayAlert(this.get('intl').t('admin.customForms.titles.formSaved'), this.get('intl').t('admin.customForms.messages.formSaved', this.get('model')));
   },
 
   actions: {
@@ -65,10 +65,10 @@ export default AbstractEditController.extend({
   },
 
   formName: computed('model.name', function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     let formName = this.get('model.name');
     if (isEmpty(formName)) {
-      return i18n.t('admin.customForms.labels.newForm');
+      return intl.t('admin.customForms.labels.newForm');
     } else {
       return formName;
     }
@@ -86,12 +86,12 @@ export default AbstractEditController.extend({
   ],
 
   formTypes: computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     let formTypeValues = this.get('formTypeValues');
     return formTypeValues.map((formTypeId) => {
       return {
         id: formTypeId,
-        value: i18n.t(`admin.customForms.labels.${formTypeId}FormType`)
+        value: intl.t(`admin.customForms.labels.${formTypeId}FormType`)
       };
     }).sort(function(a, b) {
       return Ember.compare(a.value.toString(), b.value.toString());
@@ -103,8 +103,8 @@ export default AbstractEditController.extend({
   }),
 
   fieldTypeLabel(fieldType) {
-    let i18n = this.get('i18n');
-    return i18n.t(`admin.customForms.labels.${fieldType}`);
+    let intl = this.get('intl');
+    return intl.t(`admin.customForms.labels.${fieldType}`);
   },
 
   _addNewField(field) {

@@ -1,4 +1,4 @@
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 import AbstractEditRoute from 'hospitalrun/routes/abstract-edit-route';
 import ChargeRoute from 'hospitalrun/mixins/charge-route';
 import Ember from 'ember';
@@ -45,7 +45,7 @@ export default AbstractEditRoute.extend(ChargeRoute, PatientListRoute, PatientVi
 
   getScreenTitle(model) {
     if (model.get('checkIn')) {
-      return this.get('i18n').t('visits.titles.patientCheckIn');
+      return this.get('intl').t('visits.titles.patientCheckIn');
     } else {
       return this._super(model);
     }

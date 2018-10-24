@@ -2,7 +2,7 @@ import AbstractEditRoute from 'hospitalrun/routes/abstract-edit-route';
 import Ember from 'ember';
 import PatientListRoute from 'hospitalrun/mixins/patient-list-route';
 import UserSession from 'hospitalrun/mixins/user-session';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 
 const { get } = Ember;
 

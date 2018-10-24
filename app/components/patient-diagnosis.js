@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import PatientDiagnosis from 'hospitalrun/mixins/patient-diagnosis';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 import UserSession from 'hospitalrun/mixins/user-session';
 
 const {
@@ -16,7 +16,7 @@ const DIAGNOSIS_KEYS = [
 ];
 
 export default Ember.Component.extend(PatientDiagnosis, UserSession, {
-  i18n: Ember.inject.service(),
+  intl: Ember.inject.service(),
   allowAddDiagnosis: false,
   diagnosisContainer: null,
   diagnosisProperty: null,

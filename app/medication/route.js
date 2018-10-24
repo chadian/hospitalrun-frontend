@@ -1,4 +1,4 @@
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 import AbstractModuleRoute from 'hospitalrun/routes/abstract-module-route';
 import Ember from 'ember';
 export default AbstractModuleRoute.extend({
@@ -8,13 +8,13 @@ export default AbstractModuleRoute.extend({
   sectionTitle: t('medication.sectionTitle'),
 
   additionalButtons: function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     let additionalButtons = [];
     if (this.currentUserCan('fulfill_medication')) {
       additionalButtons.push({
         buttonIcon: 'octicon octicon-checklist',
         buttonAction: 'dispenseMedication',
-        buttonText: i18n.t('medication.buttons.dispenseMedication'),
+        buttonText: intl.t('medication.buttons.dispenseMedication'),
         class: 'btn btn-primary'
       });
     }
@@ -22,7 +22,7 @@ export default AbstractModuleRoute.extend({
       additionalButtons.push({
         buttonIcon: 'octicon octicon-mail-reply',
         buttonAction: 'returnMedication',
-        buttonText: i18n.t('medication.buttons.returnMedication'),
+        buttonText: intl.t('medication.buttons.returnMedication'),
         class: 'btn btn-primary'
       });
     }

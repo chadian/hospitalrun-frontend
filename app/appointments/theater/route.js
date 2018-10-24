@@ -1,15 +1,15 @@
 import AppointmenCalendarRoute from 'hospitalrun/appointments/calendar/route';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 import Ember from 'ember';
 
 const { computed } = Ember;
 
 export default AppointmenCalendarRoute.extend({
   editReturn: 'appointments.theater',
-  newButtonText: computed('i18n.locale', () => {
+  newButtonText: computed('intl.locale', () => {
     return t('appointments.buttons.scheduleSurgery');
   }),
-  pageTitle: computed('i18n.locale', () => {
+  pageTitle: computed('intl.locale', () => {
     return t('appointments.titles.theaterSchedule');
   }),
 

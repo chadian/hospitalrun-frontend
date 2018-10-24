@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import IsUpdateDisabled from 'hospitalrun/mixins/is-update-disabled';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 export default Ember.Controller.extend(IsUpdateDisabled, {
   patientsController: Ember.inject.controller('patients'),
 
@@ -12,9 +12,9 @@ export default Ember.Controller.extend(IsUpdateDisabled, {
   updateButtonText: function() {
     let isNew = this.get('model.isNew');
     if (isNew) {
-      return this.get('i18n').t('buttons.add');
+      return this.get('intl').t('buttons.add');
     } else {
-      return this.get('i18n').t('buttons.update');
+      return this.get('intl').t('buttons.update');
     }
   }.property('model.isNew'),
 

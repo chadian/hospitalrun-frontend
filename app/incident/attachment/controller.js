@@ -1,6 +1,6 @@
 import PatientPhotoController from 'hospitalrun/patients/photo/controller';
 import Ember from 'ember';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 
 const { inject } = Ember;
 

@@ -11,12 +11,12 @@ export default Ember.Controller.extend(EditPanelProps, IsUpdateDisabled, ModalHe
   cancelAction: 'allItems',
 
   cancelButtonText: function() {
-    let i18n = get(this, 'i18n');
+    let intl = get(this, 'intl');
     let hasDirtyAttributes = get(this, 'model.hasDirtyAttributes');
     if (hasDirtyAttributes) {
-      return i18n.t('buttons.cancel');
+      return intl.t('buttons.cancel');
     } else {
-      return i18n.t('buttons.returnButton');
+      return intl.t('buttons.returnButton');
     }
   }.property('model.hasDirtyAttributes'),
 
@@ -54,11 +54,11 @@ export default Ember.Controller.extend(EditPanelProps, IsUpdateDisabled, ModalHe
 
   updateButtonAction: 'update',
   updateButtonText: function() {
-    let i18n = get(this, 'i18n');
+    let intl = get(this, 'intl');
     if (get(this, 'model.isNew')) {
-      return i18n.t('buttons.add');
+      return intl.t('buttons.add');
     } else {
-      return i18n.t('buttons.update');
+      return intl.t('buttons.update');
     }
   }.property('model.isNew'),
   updateCapability: null,
@@ -117,14 +117,14 @@ export default Ember.Controller.extend(EditPanelProps, IsUpdateDisabled, ModalHe
 
   _handleError(err) {
     if (!err.ignore) {
-      let i18n = get(this, 'i18n');
+      let intl = get(this, 'intl');
       let errorDetails = err;
       if (!errorDetails.message) {
         errorDetails.message =  err.toString();
       }
       this.displayAlert(
-        i18n.t('alerts.errorExclamation'),
-        i18n.t('messages.saveActionException', errorDetails)
+        intl.t('alerts.errorExclamation'),
+        intl.t('messages.saveActionException', errorDetails)
       );
     }
   },
@@ -147,10 +147,10 @@ export default Ember.Controller.extend(EditPanelProps, IsUpdateDisabled, ModalHe
     },
 
     showDisabledDialog() {
-      let i18n = get(this, 'i18n');
+      let intl = get(this, 'intl');
       this.displayAlert(
-        i18n.t('alerts.warningExclamation'),
-        i18n.t('messages.requiredFieldsCorrectErrors')
+        intl.t('alerts.warningExclamation'),
+        intl.t('messages.requiredFieldsCorrectErrors')
       );
     },
 

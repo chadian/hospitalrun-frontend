@@ -4,13 +4,13 @@ export default TypeAhead.extend({
   classNameBindings: ['haveInventoryItems'],
   displayKey: 'name',
   showQuantity: true,
-  i18n: Ember.inject.service(),
+  intl: Ember.inject.service(),
   store: Ember.inject.service(),
 
   _mapInventoryItems(item) {
     let returnObj = {};
     if (this.get('showQuantity') && item.quantity) {
-      returnObj.name = `${item.name} - ${item.friendlyId} (${this.get('i18n').t(
+      returnObj.name = `${item.name} - ${item.friendlyId} (${this.get('intl').t(
         'inventory.labels.availableQuantity',
         { quantity: item.quantity }
       )})`;

@@ -2,7 +2,7 @@ import AbstractIndexRoute from 'hospitalrun/routes/abstract-index-route';
 import DateFormat from 'hospitalrun/mixins/date-format';
 import Ember from 'ember';
 import moment from 'moment';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 
 const {
   computed,
@@ -18,13 +18,13 @@ export default AbstractIndexRoute.extend(DateFormat, {
   selectedVisitDate: null,
   showingTodaysPatients: true,
   pageTitle: computed('showingTodaysPatients', 'selectedVisitDate', function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     let showingTodaysPatients = this.get('showingTodaysPatients');
     if (showingTodaysPatients) {
-      return i18n.t('patients.titles.todaysOutpatients');
+      return intl.t('patients.titles.todaysOutpatients');
     } else {
       let selectedVisitDate = this._dateFormat(this.get('selectedVisitDate'));
-      return i18n.t('patients.titles.outpatientsForDate', { visitDate: selectedVisitDate });
+      return intl.t('patients.titles.outpatientsForDate', { visitDate: selectedVisitDate });
     }
   }),
 

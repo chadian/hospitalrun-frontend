@@ -26,15 +26,15 @@ export default AbstractEditController.extend(AddNewPatient, AllergyActions, Char
       buttonIcon: 'glyphicon glyphicon-log-out',
       class: 'btn btn-primary on-white'
     };
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     let status = this.get('model.status');
     if (status === VisitStatus.ADMITTED) {
       buttonProps.buttonAction = 'discharge';
-      buttonProps.buttonText = i18n.t('visits.buttons.discharge');
+      buttonProps.buttonText = intl.t('visits.buttons.discharge');
       return [buttonProps];
     } else if (status === VisitStatus.CHECKED_IN) {
       buttonProps.buttonAction = 'checkout';
-      buttonProps.buttonText = i18n.t('visits.buttons.checkOut');
+      buttonProps.buttonText = intl.t('visits.buttons.checkOut');
       return [buttonProps];
     }
   }),
@@ -164,9 +164,9 @@ export default AbstractEditController.extend(AddNewPatient, AllergyActions, Char
   }),
 
   updateButtonText: computed('model.{checkIn,isNew}', function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     if (this.get('model.checkIn')) {
-      return i18n.t('visits.buttons.checkIn');
+      return intl.t('visits.buttons.checkIn');
     } else {
       return this._super();
     }
@@ -199,27 +199,27 @@ export default AbstractEditController.extend(AddNewPatient, AllergyActions, Char
   _finishAfterUpdate() {
     let addedNewPatient = this.get('addedNewPatient');
     let checkIn = this.get('model.checkIn');
-    let i18n = this.get('i18n');
-    let updateMesage = i18n.t('visits.messages.visitSaved');
-    let updateTitle = i18n.t('visits.titles.visitSaved');
+    let intl = this.get('intl');
+    let updateMesage = intl.t('visits.messages.visitSaved');
+    let updateTitle = intl.t('visits.titles.visitSaved');
     if (checkIn === true) {
       let model = this.get('model');
       model.set('checkIn');
       this.send('setSectionHeader', {
-        currentScreenTitle: i18n.t('visits.titles.editVisit')
+        currentScreenTitle: intl.t('visits.titles.editVisit')
       });
     }
 
     if (checkIn) {
-      updateTitle = i18n.t('visits.titles.checkedIn');
+      updateTitle = intl.t('visits.titles.checkedIn');
       let patientDetails = {
         patientName: this.get('model.patient.displayName')
       };
       if (addedNewPatient === true) {
         this.set('addedNewPatient');
-        updateMesage = i18n.t('visits.messages.patientCreatedAndCheckedIn', patientDetails);
+        updateMesage = intl.t('visits.messages.patientCreatedAndCheckedIn', patientDetails);
       } else {
-        updateMesage = i18n.t('visits.messages.patientCheckedIn', patientDetails);
+        updateMesage = intl.t('visits.messages.patientCheckedIn', patientDetails);
       }
     }
     this.displayAlert(updateTitle, updateMesage);
@@ -537,11 +537,11 @@ export default AbstractEditController.extend(AddNewPatient, AllergyActions, Char
     showDeletePhoto(photo) {
       this.send('openModal', 'dialog', Ember.Object.create({
         confirmAction: 'deletePhoto',
-        title: this.get('i18n').t('patients.titles.deletePhoto'),
-        message: this.get('i18n').t('patients.titles.deletePhoto', { object: 'photo' }),
+        title: this.get('intl').t('patients.titles.deletePhoto'),
+        message: this.get('intl').t('patients.titles.deletePhoto', { object: 'photo' }),
         photoToDelete: photo,
         updateButtonAction: 'confirm',
-        updateButtonText: this.get('i18n').t('buttons.ok')
+        updateButtonText: this.get('intl').t('buttons.ok')
       }));
     },
 
@@ -569,7 +569,7 @@ export default AbstractEditController.extend(AddNewPatient, AllergyActions, Char
         message: 'Are you sure you want to delete this note?',
         noteToDelete: note,
         updateButtonAction: 'confirm',
-        updateButtonText: this.get('i18n').t('buttons.ok')
+        updateButtonText: this.get('intl').t('buttons.ok')
       }));
     },
 

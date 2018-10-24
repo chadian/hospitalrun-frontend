@@ -3,7 +3,7 @@ import Ember from 'ember';
 import PatientVisits from 'hospitalrun/mixins/patient-visits';
 import PatientNotes from 'hospitalrun/mixins/patient-notes';
 import PouchDbMixin from 'hospitalrun/mixins/pouchdb';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 
 export default AbstractEditRoute.extend(PatientVisits, PouchDbMixin, PatientNotes, {
   customForms: Ember.inject.service(),

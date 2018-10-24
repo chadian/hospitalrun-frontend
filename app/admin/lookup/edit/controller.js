@@ -6,11 +6,11 @@ export default Ember.Controller.extend(IsUpdateDisabled, {
 
   updateButtonAction: 'update',
   updateButtonText: function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     if (this.get('model.isNew')) {
-      return i18n.t('buttons.add');
+      return intl.t('buttons.add');
     } else {
-      return i18n.t('buttons.update');
+      return intl.t('buttons.update');
     }
   }.property('model.isNew'),
 

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import AbstractEditRoute from 'hospitalrun/routes/abstract-edit-route';
 import { task } from 'ember-concurrency';
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 import UnauthorizedError from 'hospitalrun/utils/unauthorized-error';
 
 const { computed } = Ember;
@@ -31,7 +31,7 @@ export default AbstractEditRoute.extend({
     return this.get('store').normalize('option', {
       id: 'address_options',
       value: {
-        address1Label: this.get('i18n').t('admin.address.addressLabel'),
+        address1Label: this.get('intl').t('admin.address.addressLabel'),
         address1Include: true
       }
     });

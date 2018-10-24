@@ -27,7 +27,7 @@ export default Ember.Controller.extend(HospitalRunVersion, ModalHelper, Progress
         if (!Ember.isEmpty(siteInfo)) {
           message += ` Site Info: ${siteInfo}`;
         }
-        this.displayAlert(this.get('i18n').t('navigation.about'), message);
+        this.displayAlert(this.get('intl').t('navigation.about'), message);
       });
     },
 
@@ -35,9 +35,9 @@ export default Ember.Controller.extend(HospitalRunVersion, ModalHelper, Progress
       let session = this.get('session');
       if (session.get('isAuthenticated')) {
         session.invalidate().catch(() => {
-          let i18n = this.get('i18n');
-          let message = i18n.t('navigation.messages.logoutFailed');
-          let title = i18n.t('navigation.titles.logoutFailed');
+          let intl = this.get('intl');
+          let message = intl.t('navigation.messages.logoutFailed');
+          let title = intl.t('navigation.titles.logoutFailed');
           this.displayAlert(title, message);
         });
       }

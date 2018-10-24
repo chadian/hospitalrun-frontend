@@ -1,4 +1,4 @@
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 import MedicationEditRoute from '../edit/route';
 import Ember from 'ember';
 

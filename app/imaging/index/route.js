@@ -1,4 +1,4 @@
-import { translationMacro as t } from 'ember-i18n';
+import { translationMacro as t } from 'ember-intl';
 import AbstractIndexRoute from 'hospitalrun/routes/abstract-index-route';
 import Ember from 'ember';
 
@@ -6,7 +6,7 @@ const { computed } = Ember;
 
 export default AbstractIndexRoute.extend({
   modelName: 'imaging',
-  pageTitle: computed('i18n.locale', () => {
+  pageTitle: computed('intl.locale', () => {
     return t('imaging.pageTitle');
   }),
   searchStatus: 'Requested',

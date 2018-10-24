@@ -19,15 +19,15 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
   patientDetails: {},
 
   admissionReportColumns: Ember.computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return {
       sex: {
-        label: i18n.t('labels.sex'),
+        label: intl.t('labels.sex'),
         include: true,
         property: 'sex'
       },
       total: {
-        label: i18n.t('labels.total'),
+        label: intl.t('labels.total'),
         include: true,
         property: 'total',
         format: '_numberFormat'
@@ -35,32 +35,32 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
     };
   }),
   admissionDetailReportColumns: Ember.computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return {
       id: {
-        label: i18n.t('labels.id'),
+        label: intl.t('labels.id'),
         include: true,
         property: 'patientId'
       },
       name: {
-        label: i18n.t('labels.name'),
+        label: intl.t('labels.name'),
         include: true,
         property: 'patientName'
       },
       admissionDate: {
-        label: i18n.t('patients.labels.admissionDate'),
+        label: intl.t('patients.labels.admissionDate'),
         include: true,
         property: 'admissionDate',
         format: '_dateTimeFormat'
       },
       dischargeDate: {
-        label: i18n.t('patients.labels.dischargeDate'),
+        label: intl.t('patients.labels.dischargeDate'),
         include: false,
         property: 'dischargeDate',
         format: '_dateTimeFormat'
       },
       patientDays: {
-        label: i18n.t('patients.labels.patientDays'),
+        label: intl.t('patients.labels.patientDays'),
         include: false,
         property: 'patientDays',
         format: '_numberFormat'
@@ -68,15 +68,15 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
     };
   }),
   diagnosticReportColumns: Ember.computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return {
       type: {
-        label: i18n.t('labels.type'),
+        label: intl.t('labels.type'),
         include: true,
         property: 'type'
       },
       total: {
-        label: i18n.t('labels.total'),
+        label: intl.t('labels.total'),
         include: true,
         property: 'total',
         format: '_numberFormat'
@@ -84,25 +84,25 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
     };
   }),
   procedureDetailReportColumns: Ember.computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return {
       id: {
-        label: i18n.t('labels.id'),
+        label: intl.t('labels.id'),
         include: true,
         property: 'patient.displayPatientId'
       },
       name: {
-        label: i18n.t('labels.name'),
+        label: intl.t('labels.name'),
         include: true,
         property: 'patient.displayName'
       },
       procedure: {
-        label: i18n.t('visits.labels.procedure'),
+        label: intl.t('visits.labels.procedure'),
         include: true,
         property: 'procedure'
       },
       procedureDate: {
-        label: i18n.t('visits.labels.procedureDate'),
+        label: intl.t('visits.labels.procedureDate'),
         include: true,
         property: 'procedureDate',
         format: '_dateTimeFormat'
@@ -110,84 +110,84 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
     };
   }),
   reportColumns: Ember.computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return {
       visitDate: {
-        label: i18n.t('visits.labels.visitDate'),
+        label: intl.t('visits.labels.visitDate'),
         include: true,
         property: 'visitDate'
       },
       visitType: {
-        label: i18n.t('visits.labels.visitType'),
+        label: intl.t('visits.labels.visitType'),
         include: true,
         property: 'visitType'
       },
       visitLocation: {
-        label: i18n.t('labels.location'),
+        label: intl.t('labels.location'),
         include: false,
         property: 'location'
       },
       examiner: {
-        label: i18n.t('visits.labels.examiner'),
+        label: intl.t('visits.labels.examiner'),
         include: true,
         property: 'examiner'
       },
       name: {
-        label: i18n.t('labels.name'),
+        label: intl.t('labels.name'),
         include: true,
         property: 'patient.displayName'
       },
       id: {
-        label: i18n.t('labels.id'),
+        label: intl.t('labels.id'),
         include: true,
         property: 'patient.displayPatientId'
       },
       sex: {
-        label: i18n.t('patients.labels.sex'),
+        label: intl.t('patients.labels.sex'),
         include: true,
         property: 'patient.sex'
       },
       dateOfBirth: {
-        label: i18n.t('patients.labels.dateOfBirth'),
+        label: intl.t('patients.labels.dateOfBirth'),
         include: true,
         property: 'patient.dateOfBirth',
         format: '_dateFormat'
       },
       age: {
-        label: i18n.t('labels.age'),
+        label: intl.t('labels.age'),
         include: false,
         property: 'patient.age'
       },
       primaryDiagnosis: {
-        label: i18n.t('patients.labels.primaryDiagnosis'),
+        label: intl.t('patients.labels.primaryDiagnosis'),
         include: false,
         property: 'primaryDiagnosis'
       },
       secondaryDiagnoses: {
-        label: i18n.t('patients.labels.secondaryDiagnosis'),
+        label: intl.t('patients.labels.secondaryDiagnosis'),
         include: false,
         property: 'additionalDiagnoses',
         format: '_diagnosisListToString'
       },
       procedures: {
-        label: i18n.t('labels.procedures'),
+        label: intl.t('labels.procedures'),
         include: false,
         property: 'resolvedProcedures',
         format: '_procedureListToString'
       },
       contacts: {
-        label: i18n.t('patients.labels.contacts'),
+        label: intl.t('patients.labels.contacts'),
         include: false,
         property: 'patient',
         format: '_contactListToString'
       },
       referredBy: {
-        label: i18n.t('patients.labels.referredBy'),
+        label: intl.t('patients.labels.referredBy'),
         include: false,
         property: 'patient.referredBy'
       },
       referredDate: {
-        label: i18n.t('patients.labels.referredDate'),
+        label: intl.t('patients.labels.referredDate'),
         include: false,
         property: 'patient.referredDate',
         format: '_dateFormat'
@@ -195,31 +195,31 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
     };
   }),
   statusReportColumns: Ember.computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return {
       id: {
-        label: i18n.t('labels.id'),
+        label: intl.t('labels.id'),
         include: true,
         property: 'patient.displayPatientId'
       },
       name: {
-        label: i18n.t('labels.name'),
+        label: intl.t('labels.name'),
         include: true,
         property: 'patient.displayName'
       },
       status: {
-        label: i18n.t('labels.status'),
+        label: intl.t('labels.status'),
         include: true,
         property: 'patient.status'
       },
       primaryDiagnosis: {
-        label: i18n.t('patients.labels.primaryDiagnosis'),
+        label: intl.t('patients.labels.primaryDiagnosis'),
         include: true,
         property: 'patient',
         format: '_formatPrimaryDiagnosis'
       },
       secondaryDiagnoses: {
-        label: i18n.t('patients.labels.secondaryDiagnosis'),
+        label: intl.t('patients.labels.secondaryDiagnosis'),
         include: true,
         property: 'patient',
         format: '_formatSecondaryDiagnosis'
@@ -227,39 +227,39 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
     };
   }),
   reportTypes: Ember.computed(function() {
-    let i18n = this.get('i18n');
+    let intl = this.get('intl');
     return [{
-      name: i18n.t('patients.titles.admissionsDetail'),
+      name: intl.t('patients.titles.admissionsDetail'),
       value: 'detailedAdmissions'
     }, {
-      name: i18n.t('patients.titles.admissionsSummary'),
+      name: intl.t('patients.titles.admissionsSummary'),
       value: 'admissions'
     }, {
-      name: i18n.t('patients.titles.diagnosticTesting'),
+      name: intl.t('patients.titles.diagnosticTesting'),
       value: 'diagnostic'
     }, {
-      name: i18n.t('patients.titles.dischargesDetail'),
+      name: intl.t('patients.titles.dischargesDetail'),
       value: 'detailedDischarges'
     }, {
-      name: i18n.t('patients.titles.dischargesSummary'),
+      name: intl.t('patients.titles.dischargesSummary'),
       value: 'discharges'
     }, {
-      name: i18n.t('patients.titles.proceduresDetail'),
+      name: intl.t('patients.titles.proceduresDetail'),
       value: 'detailedProcedures'
     }, {
-      name: i18n.t('patients.titles.proceduresSummary'),
+      name: intl.t('patients.titles.proceduresSummary'),
       value: 'procedures'
     }, {
-      name: i18n.t('patients.titles.patientStatus'),
+      name: intl.t('patients.titles.patientStatus'),
       value: 'status'
     }, {
-      name: i18n.t('patients.titles.totalPatientDays'),
+      name: intl.t('patients.titles.totalPatientDays'),
       value: 'patientDays'
     }, {
-      name: i18n.t('patients.titles.totalPatientDaysDetailed'),
+      name: intl.t('patients.titles.totalPatientDaysDetailed'),
       value: 'detailedPatientDays'
     }, {
-      name: i18n.t('patients.titles.visit'),
+      name: intl.t('patients.titles.visit'),
       value: 'visit'
     }];
   }),
@@ -545,7 +545,7 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
     let detailedReport = false;
     let reportColumns;
     let patientBySex = {};
-    let sexNotEnteredLabel = this.get('i18n').t('patients.labels.sexNotEntered');
+    let sexNotEnteredLabel = this.get('intl').t('patients.labels.sexNotEntered');
 
     if (reportType.indexOf('detailed') > -1) {
       detailedReport = true;

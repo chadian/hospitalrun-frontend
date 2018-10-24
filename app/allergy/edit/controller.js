@@ -12,13 +12,13 @@ const {
 } = Ember;
 
 export default AbstractEditController.extend({
-  i18n: inject.service(),
+  intl: inject.service(),
   editController: alias('model.editController'),
   newAllergy: false,
 
   additionalButtons: computed('model.isNew', function() {
     let model = get(this, 'model');
-    let btn = get(this, 'i18n').t('buttons.delete');
+    let btn = get(this, 'intl').t('buttons.delete');
     let isNew = get(model, 'isNew');
     if (!isNew) {
       return [{
@@ -32,12 +32,12 @@ export default AbstractEditController.extend({
 
   title: Ember.computed('model', function() {
     let model = get(this, 'model');
-    let i18n = get(this, 'i18n');
+    let intl = get(this, 'intl');
     let isNew = get(model, 'isNew');
     if (!isNew) {
-      return i18n.t('allergies.titles.editAllergy');
+      return intl.t('allergies.titles.editAllergy');
     } else {
-      return i18n.t('allergies.titles.addAllergy');
+      return intl.t('allergies.titles.addAllergy');
     }
   }),
 
