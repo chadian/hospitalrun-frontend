@@ -295,7 +295,7 @@ export default {
       newSurgicalAppointment: 'นัดผ่าตัดใหม่',
       theaterSchedule: 'กำหนดการโรงละคร'
     },
-    todayTitle: "การนัดหมายวันนี้"
+    todayTitle: 'การนัดหมายวันนี้'
   },
   billing: {
     alerts: {
@@ -336,8 +336,7 @@ export default {
     cancel: 'ยกเลิก',
     clear: 'ชัดเจน',
     close: 'ปิด',
-    complete: 'สมบูรณ์'
-     'ลบ': 'ลบ'
+    complete: 'สมบูรณ์',
     dispense: 'จ่ายยา',
     edit: 'แก้ไข',
     filter: 'กรอง',
@@ -411,7 +410,7 @@ export default {
         date: 'วันที่',
         location: 'ที่ตั้ง',
         type: 'ชนิด',
-        'กับ ':' ด้วย'
+        'กับ ': ' ด้วย'
       },
       titles: { upcomingAppointments: 'การนัดหมายที่จะเกิดขึ้น' }
     }
@@ -429,31 +428,30 @@ export default {
   dates: {
     'ยาว': '{{years}} ปี {{months}} เดือน {{days}} วัน',
     longOmitDays: '{{years}} ปี {{months}} เดือน',
-    longOmitDaysPlural: '{{years}} years {{months}} months'
-    longOmitDaysYears: '{{months}} months'
-    longOmitYears: '{{months}} เดือน {{days}} วัน',
-    longPlural: '{{years}} years {{months}} months {{days}} days'
-    'สั้น': '{{years}} y {{months}} m {{days}} d'
-    shortOmitYears: '{{months}} m {{days}} d'
-   }
+    longOmitDaysPlural: '{{years}} years {{months}} months',
+    longOmitDaysYears: '{{months}} months',
+    longOmitYears: '{{months}} เดือน {{days}} วัน',
+    longPlural: '{{years}} years {{months}} months {{days}} days',
+    shortOmitYears: '{{months}} m {{days}} d'
+  },
 
   diagnosis: {
     labels: {
       activeDiagnosis: 'การวินิจฉัยที่ใช้งาน',
-      date: 'วันที่',
-      diagnosis: 'วินิจฉัย'
-      secondaryDiagnosis: 'การวินิจฉัยทุติยภูมิ'
-     }
-     titles: {
-      addDiagnosis: 'เพิ่มการวินิจฉัย',
-      editDiagnosis: 'แก้ไขการวินิจฉัย'
-     }
+      date: 'วันที่',
+      diagnosis: 'วินิจฉัย',
+      secondaryDiagnosis: 'การวินิจฉัยทุติยภูมิ'
+    },
+    titles: {
+      addDiagnosis: 'เพิ่มการวินิจฉัย',
+      editDiagnosis: 'แก้ไขการวินิจฉัย'
+    }
   },
   errors: {
     accepted: 'ต้องได้รับการยอมรับ',
-    blank: "ต้องไม่ว่างเปล่า",
-    confirmation: "ไม่ตรงกับ {{attribute}}",
-    empty: "ต้องว่างเปล่า",
+    blank: 'ต้องไม่ว่างเปล่า',
+    confirmation: 'ไม่ตรงกับ {{attribute}}',
+    empty: 'ต้องว่างเปล่า',
     equalTo: 'ต้องเท่ากับ {{count}}',
     even: 'ต้องเป็นไปได้',
     exclusion: 'สงวนไว้',
@@ -508,7 +506,7 @@ export default {
       'delete': 'ลบ',
       download: 'ดาวน์โหลด',
       edit: 'แก้ไข',
-      'export ':' Export Report ',
+      'export ': ' Export Report ',
       generateRep: 'สร้างรายงาน',
       newAttachment: '+ เอกสารแนบใหม่',
       newCategory: '+ หมวดหมู่ใหม่',
@@ -665,7 +663,7 @@ export default {
       print: 'พิมพ์',
       printBarcode: 'พิมพ์บาร์โค้ด',
       printer: 'เครื่องพิมพ์',
-      pullFrom:'ดึงจาก',
+      pullFrom: 'ดึงจาก',
       purchaseCost: 'ซื้อต้นทุน',
       purchaseInfo: 'ข้อมูลการสั่งซื้อ',
       purchases: 'ซื้อ',
@@ -805,7 +803,7 @@ export default {
     dateOfBirthShort: 'DoB',
     datePaid: 'วันที่ที่ชำระเงิน',
     dateRequested: 'วันที่ที่ร้องขอ',
-    'ลบ ':' ลบ ',
+    'ลบ ': ' ลบ ',
     deleteRequest: 'ลบคำขอ',
     deleteUser: 'ลบผู้ใช้',
     department: 'แผนก',
@@ -911,17 +909,17 @@ export default {
   loading: {
     messages: {
       '0': 'ความเร็วในการบินผีเสื้อด้านบนอยู่ที่ 12 ไมล์ต่อชั่วโมง ผีเสื้อบางตัวสามารถบินได้ 25 ไมล์ต่อชั่วโมง! ',
-      '1': 'นกฮูกเป็นนกเพียงตัวเดียวที่สามารถมองเห็นสีน้ำเงิน',
-      '2': 'แมวมีเสียงร้องมากกว่า 100 เสียง; สุนัขมีเพียง 10 ',
-      '3': 'มนุษย์ใช้กล้ามเนื้อทั้งหมด 72 ชนิดในการพูด',
-      '4': 'มีการพูดถึงมากกว่า 1,000 ภาษาในทวีปแอฟริกา',
-      '5': 'erythrophobe เป็นคนที่แดงขึ้นอย่างง่ายดาย',
-      '6': 'ความหวาดกลัวที่พบบ่อยที่สุดในโลกคืออาการ odynophobia ซึ่งเป็นความกลัวของอาการปวด',
-      '7': 'ร่างกายของคุณใช้ 300 กล้ามเนื้อเพื่อความสมดุลของตัวเองเมื่อคุณกำลังยืนนิ่ง',
-      '8': 'กบบางตัวสามารถแช่แข็งแข็งแล้วละลายและยังคงมีชีวิตอยู่',
-      '9': 'ตาของเรามีขนาดเท่ากันตั้งแต่แรกเกิด แต่จมูกและหูของเราก็ไม่เคยหยุดนิ่ง',
-      '10':' ลิ้นของคุณเป็นกล้ามเนื้อเดียวในร่างกายของคุณที่ติดอยู่ที่ปลายข้างเดียว ',
-      '11': 'อูฐมีสามเปลือกตาเพื่อป้องกันตัวเองจากการเป่าทราย'
+      '1': 'นกฮูกเป็นนกเพียงตัวเดียวที่สามารถมองเห็นสีน้ำเงิน',
+      '2': 'แมวมีเสียงร้องมากกว่า 100 เสียง; สุนัขมีเพียง 10 ',
+      '3': 'มนุษย์ใช้กล้ามเนื้อทั้งหมด 72 ชนิดในการพูด',
+      '4': 'มีการพูดถึงมากกว่า 1,000 ภาษาในทวีปแอฟริกา',
+      '5': 'erythrophobe เป็นคนที่แดงขึ้นอย่างง่ายดาย',
+      '6': 'ความหวาดกลัวที่พบบ่อยที่สุดในโลกคืออาการ odynophobia ซึ่งเป็นความกลัวของอาการปวด',
+      '7': 'ร่างกายของคุณใช้ 300 กล้ามเนื้อเพื่อความสมดุลของตัวเองเมื่อคุณกำลังยืนนิ่ง',
+      '8': 'กบบางตัวสามารถแช่แข็งแข็งแล้วละลายและยังคงมีชีวิตอยู่',
+      '9': 'ตาของเรามีขนาดเท่ากันตั้งแต่แรกเกิด แต่จมูกและหูของเราก็ไม่เคยหยุดนิ่ง',
+      '10': ' ลิ้นของคุณเป็นกล้ามเนื้อเดียวในร่างกายของคุณที่ติดอยู่ที่ปลายข้างเดียว ',
+      '11': 'อูฐมีสามเปลือกตาเพื่อป้องกันตัวเองจากการเป่าทราย'
     },
     progressBar: { progress: '{{progressBarValue}}% เสร็จสิ้น' }
   },
@@ -975,7 +973,7 @@ export default {
   messages: {
     createNewRecord: 'สร้างระเบียนใหม่หรือไม่?',
     createNewUser: 'สร้างผู้ใช้ใหม่หรือไม่?',
-    'ลบ ':' คุณแน่ใจหรือว่าต้องการลบ {{name}}? ',
+    'ลบ ': ' คุณแน่ใจหรือว่าต้องการลบ {{name}}? ',
     delete_plural: 'คุณแน่ใจหรือไม่ว่าต้องการลบ {{name}} เหล่านี้',
     delete_singular: 'คุณแน่ใจหรือไม่ว่าต้องการลบ {{name}} นี้',
     forAuthorizedPersons: 'รายงานฉบับนี้มีไว้สำหรับผู้มีอำนาจเท่านั้น',
@@ -1136,7 +1134,7 @@ export default {
       scheduleSurgery: 'กำหนดการศัลยกรรม',
       textReplacements: 'ย่อ',
       theaterSchedule: 'กำหนดการโรงละคร',
-      "การนัดหมายในวันนี้ ":" การนัดหมายในวันนี้",
+      'การนัดหมายในวันนี้ ': ' การนัดหมายในวันนี้',
       userRoles: 'บทบาทผู้ใช้',
       users: 'ผู้ใช้',
       workflow: 'ขั้นตอนการทำงาน'
@@ -1284,7 +1282,7 @@ export default {
       admissionsDetail: 'รายละเอียดการรับเข้าเรียน',
       admissionsSummary: 'สรุปการรับเข้าศึกษา',
       admittedPatients: 'ผู้ป่วยที่เข้ารับการรักษา',
-      'ลบ ':' ลบผู้ป่วย',
+      'ลบ ': ' ลบผู้ป่วย',
       deleteContact: 'ลบที่อยู่ติดต่อ',
       deleteExpense: 'ลบค่าใช้จ่าย',
       deleteFamilyMember: 'ลบสมาชิกในครอบครัว',
@@ -1298,7 +1296,7 @@ export default {
       expenses: 'รายจ่าย',
       familyInfo: 'ข้อมูลครอบครัว',
       familyInformation: 'ข้อมูลครอบครัว',
-      'ใหม่ ':' New Patient',
+      'ใหม่ ': ' New Patient',
       outpatientsForDate: 'ผู้ป่วยนอกสำหรับ {{visitDate}}',
       patient: 'รายงานผู้ป่วย',
       patientListing: 'รายชื่อผู้ป่วย',
@@ -1308,7 +1306,7 @@ export default {
       proceduresSummary: 'สรุปกระบวนการ',
       savedPatient: 'บันทึกผู้ป่วยแล้ว',
       socialWork: 'ค่าใช้จ่าย',
-      todaysOutpatients: "ผู้ป่วยนอกในวันนี้",
+      todaysOutpatients: 'ผู้ป่วยนอกในวันนี้',
       totalPatientDays: 'จำนวนวันป่วยทั้งหมด',
       totalPatientDaysDetailed: 'จำนวนผู้ป่วยทั้งหมด (รายละเอียด)',
       visit: 'Visit'
@@ -1339,7 +1337,7 @@ export default {
     titles: {
       billingStatement: 'การเรียกเก็บเงิน',
       patientMember: 'ผู้ป่วยที่เป็นสมาชิก',
-      patients: "ของผู้ป่วย",
+      patients: 'ของผู้ป่วย',
       relContact: 'ความสัมพันธ์ / เบอร์ติดต่อ.'
     }
   } },
