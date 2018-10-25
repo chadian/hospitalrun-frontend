@@ -1,7 +1,5 @@
 export default {
-  name: 'intl',
-
-  after: 'ember-intl',
+  name: 'intl-injection',
 
   initialize(app) {
     app.inject('route', 'intl', 'service:intl');

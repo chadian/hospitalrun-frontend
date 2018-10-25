@@ -6,7 +6,7 @@ import localeConfig from 'ember-i18n/config/en';
 
 moduleFor('mixin:inventory-adjustment-types', 'Unit | Mixin | inventory-adjustment-types', {
   needs: [
-    'service:i18n',
+    'service:intl',
     'locale:en/translations',
     'locale:en/config',
     'util:i18n/missing-message',
@@ -15,11 +15,11 @@ moduleFor('mixin:inventory-adjustment-types', 'Unit | Mixin | inventory-adjustme
   ],
   beforeEach() {
     // set the locale and the config
-    this.container.lookup('service:i18n').set('locale', 'en');
+    this.container.lookup('service:intl').set('locale', 'en');
     this.registry.register('locale:en/config', localeConfig);
 
     // Inject i18n as the intializer does not run in unit test
-    Ember.getOwner(this).inject('inventory-adjustment-types', 'i18n', 'service:i18n');
+    Ember.getOwner(this).inject('inventory-adjustment-types', 'i18n', 'service:intl');
 
     // register t helper
     this.registry.register('helper:t', tHelper);

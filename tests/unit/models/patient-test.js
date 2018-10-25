@@ -16,16 +16,16 @@ moduleForModel('patient', 'Unit | Model | patient', {
     'model:operative-plan',
     'model:payment',
     'model:price-profile',
-    'service:i18n',
+    'service:intl',
     'util:i18n/compile-template',
     'util:i18n/missing-message'
   ],
   beforeEach() {
     // set the locale and the config
-    this.container.lookup('service:i18n').set('locale', 'en');
+    this.container.lookup('service:intl').set('locale', 'en');
     this.registry.register('locale:en/config', localeConfig);
 
-    Ember.getOwner(this).inject('model', 'i18n', 'service:i18n');
+    Ember.getOwner(this).inject('model', 'i18n', 'service:intl');
 
     // register t helper
     this.registry.register('helper:t', tHelper);

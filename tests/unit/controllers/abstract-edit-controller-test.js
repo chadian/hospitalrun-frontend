@@ -5,7 +5,7 @@ import localeConfig from 'ember-i18n/config/en';
 
 moduleFor('controller:abstract-edit-controller', 'Unit | Controller | abstract-edit-controller', {
   needs: [
-    'service:i18n',
+    'service:intl',
     'locale:en/translations',
     'locale:en/config',
     'util:i18n/missing-message',
@@ -14,12 +14,12 @@ moduleFor('controller:abstract-edit-controller', 'Unit | Controller | abstract-e
   ],
   beforeEach() {
     // set the locale and the config
-    this.container.lookup('service:i18n').set('locale', 'en');
+    this.container.lookup('service:intl').set('locale', 'en');
     this.registry.register('locale:en/config', localeConfig);
 
     // manually inject the i18n service as initialzer does not run
     // in unit test
-    Ember.getOwner(this).inject('controller', 'i18n', 'service:i18n');
+    Ember.getOwner(this).inject('controller', 'i18n', 'service:intl');
 
     // register t helper
     this.registry.register('helper:t', tHelper);

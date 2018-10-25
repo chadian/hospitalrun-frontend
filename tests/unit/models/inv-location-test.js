@@ -7,7 +7,7 @@ moduleForModel('inv-location', 'Unit | Model | inv-location', {
     'ember-validations@validator:local/numericality',
     'ember-validations@validator:local/acceptance',
     'ember-validations@validator:local/presence',
-    'service:i18n',
+    'service:intl',
     'locale:en/translations',
     'locale:en/config',
     'util:i18n/missing-message',
@@ -16,7 +16,7 @@ moduleForModel('inv-location', 'Unit | Model | inv-location', {
   ],
   beforeEach() {
     // set the locale and the config
-    this.container.lookup('service:i18n').set('locale', 'en');
+    this.container.lookup('service:intl').set('locale', 'en');
     this.registry.register('locale:en/config', localeConfig);
 
     // register t helper

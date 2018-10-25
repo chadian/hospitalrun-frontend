@@ -20,7 +20,7 @@ moduleForModel('inv-request', 'Unit | Model | inv-request', {
     'model:payment',
     'model:price-profile',
     'model:visit',
-    'service:i18n',
+    'service:intl',
     'locale:en/translations',
     'locale:en/config',
     'util:i18n/missing-message',
@@ -29,10 +29,10 @@ moduleForModel('inv-request', 'Unit | Model | inv-request', {
   ],
   beforeEach() {
     // set the locale and the config
-    this.container.lookup('service:i18n').set('locale', 'en');
+    this.container.lookup('service:intl').set('locale', 'en');
     this.registry.register('locale:en/config', localeConfig);
 
-    Ember.getOwner(this).inject('model', 'i18n', 'service:i18n');
+    Ember.getOwner(this).inject('model', 'i18n', 'service:intl');
 
     // register t helper
     this.registry.register('helper:t', tHelper);

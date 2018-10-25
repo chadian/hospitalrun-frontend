@@ -8,7 +8,7 @@ import moment from 'moment';
 
 moduleFor('mixin:dob-days', 'Unit | Mixin | dob-days', {
   needs: [
-    'service:i18n',
+    'service:intl',
     'locale:en/translations',
     'locale:en/config',
     'util:i18n/missing-message',
@@ -17,11 +17,11 @@ moduleFor('mixin:dob-days', 'Unit | Mixin | dob-days', {
   ],
   beforeEach() {
     // set the locale and the config
-    this.container.lookup('service:i18n').set('locale', 'en');
+    this.container.lookup('service:intl').set('locale', 'en');
     this.registry.register('locale:en/config', localeConfig);
 
     // Inject i18n as the intializer does not run in unit test
-    Ember.getOwner(this).inject('model', 'i18n', 'service:i18n');
+    Ember.getOwner(this).inject('model', 'i18n', 'service:intl');
 
     // register t helper
     this.registry.register('helper:t', tHelper);
