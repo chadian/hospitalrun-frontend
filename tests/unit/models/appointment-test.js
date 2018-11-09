@@ -1,4 +1,5 @@
-import { moduleForModel } from 'ember-qunit';
+import { module } from 'qunit';
+import { setupTest } from 'ember-qunit';
 import { run } from '@ember/runloop';
 import moment from 'moment';
 
@@ -7,56 +8,50 @@ import {
   testInvalidPropertyValues
 } from '../../helpers/validate-properties';
 
-moduleForModel('appointment', 'Unit | Model | appointment', {
-  needs: [
-    'ember-validations@validator:local/acceptance',
-    'ember-validations@validator:local/presence',
-    'model:patient',
-    'model:visit',
-    'service:session'
-  ]
-});
+module('Unit | Model | appointment', function(hooks) {
+  setupTest(hooks);
 
-testValidPropertyValues('appointmentType', ['test']);
-testInvalidPropertyValues('appointmentType', [undefined]);
+  testValidPropertyValues('appointmentType', ['test']);
+  testInvalidPropertyValues('appointmentType', [undefined]);
 
-let today = moment().startOf('day').toDate();
-let tomorrow =  moment().startOf('day').add(24, 'hours').toDate();
+  let today = moment().startOf('day').toDate();
+  let tomorrow =  moment().startOf('day').add(24, 'hours').toDate();
 
-testValidPropertyValues('startDate', [today], function(subject) {
-  run(() => {
-    subject.set('endDate', tomorrow);
+  testValidPropertyValues('startDate', [today], function(subject) {
+    run(() => {
+      subject.set('endDate', tomorrow);
+    });
   });
-});
 
-testInvalidPropertyValues('startDate', [tomorrow], function(subject) {
-  run(() => {
-    subject.set('endDate', today);
+  testInvalidPropertyValues('startDate', [tomorrow], function(subject) {
+    run(() => {
+      subject.set('endDate', today);
+    });
   });
-});
 
-testValidPropertyValues('endDate', [tomorrow], function(subject) {
-  run(() => {
-    subject.set('startDate', today);
+  testValidPropertyValues('endDate', [tomorrow], function(subject) {
+    run(() => {
+      subject.set('startDate', today);
+    });
   });
-});
 
-testInvalidPropertyValues('endDate', [today], function(subject) {
-  run(() => {
-    subject.set('startDate', tomorrow);
+  testInvalidPropertyValues('endDate', [today], function(subject) {
+    run(() => {
+      subject.set('startDate', tomorrow);
+    });
   });
-});
 
-testInvalidPropertyValues('startDate', [today], function(subject) {
-  run(() => {
-    subject.set('allDay', false);
-    subject.set('endDate', today);
+  testInvalidPropertyValues('startDate', [today], function(subject) {
+    run(() => {
+      subject.set('allDay', false);
+      subject.set('endDate', today);
+    });
   });
-});
 
-testValidPropertyValues('startDate', [today], function(subject) {
-  run(() => {
-    subject.set('allDay', true);
-    subject.set('endDate', today);
+  testValidPropertyValues('startDate', [today], function(subject) {
+    run(() => {
+      subject.set('allDay', true);
+      subject.set('endDate', today);
+    });
   });
 });
