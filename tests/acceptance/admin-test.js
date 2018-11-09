@@ -4,6 +4,7 @@ import runWithPouchDump from 'hospitalrun/tests/helpers/run-with-pouch-dump';
 import select from 'hospitalrun/tests/helpers/select';
 import { waitToAppear } from 'hospitalrun/tests/helpers/wait-to-appear';
 import { authenticateUser } from 'hospitalrun/tests/helpers/authenticate-user';
+import { find, visit, fillIn, click, currentURL } from '@ember/test-helpers';
 
 module('Acceptance | admin', function(hooks) {
   setupApplicationTest(hooks);
@@ -16,7 +17,7 @@ module('Acceptance | admin', function(hooks) {
 
       await select('.lookup-type', 'Visit Types');
       assert.dom('h3.panel-title').hasText('Visit Types', 'Visit Types header is displayed');
-      assert.equal(find('td.lookup-type-value:first').text(), 'Admission', 'Admission visit type displays');
+      assert.equal(find('td.lookup-type-value').text(), 'Admission', 'Admission visit type displays');
 
       await click('button:contains(Update)');
       await waitToAppear('.modal-dialog');

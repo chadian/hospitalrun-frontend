@@ -1,5 +1,5 @@
 /* jshint ignore:start */
-import { getContext } from '@ember/test-helpers';
+import { getContext, settled } from '@ember/test-helpers';
 
 import { Promise as EmberPromise, all } from 'rsvp';
 import { set, get } from '@ember/object';
@@ -12,7 +12,7 @@ import ConfigService from 'hospitalrun/services/config';
 import PouchDBWorker from 'npm:worker-pouch/client';
 
 function cleanupDatabases(maindb, dbs) {
-  return wait().then(function() {
+  return settled().then(function() {
     return new EmberPromise(function(resolve, reject) {
       if (maindb.changesListener) {
         maindb.changesListener.cancel();
@@ -58,6 +58,7 @@ async function runWithPouchDump(dumpName, functionToRun) {
   let InMemoryDatabaseService = DatabaseService.extend({
 
     createDB(configs) {
+      return Ember.run(() => {
       let standAlone = get(this, 'standAlone');
       if (standAlone || !configs.config_external_search) {
         set(this, 'usePouchFind', true);
@@ -84,9 +85,10 @@ async function runWithPouchDump(dumpName, functionToRun) {
       } else {
         return promise.then(() => db);
       }
+      });
     },
     createUsersDB() {
-      return usersDB.installUsersBehavior().then(() => {
+      return Ember.run(() => usersDB.installUsersBehavior().then(() => {
         set(this, 'usersDB', usersDB);
         return usersDB.put({
           _id: 'org.couchdb.user:hradmin',
@@ -100,7 +102,7 @@ async function runWithPouchDump(dumpName, functionToRun) {
         });
       }).catch((err) => {
         console.log('Error creating users db!!!', err);
-      });
+      }));
     }
   });
 
@@ -123,7 +125,7 @@ async function runWithPouchDump(dumpName, functionToRun) {
     }
   });
 
-  let owner = getContext().application.__deprecatedInstance__;
+  let owner = getContext().owner;
   owner.register('service:config', InMemoryConfigService);
   owner.register('service:database', InMemoryDatabaseService);
 
@@ -132,8 +134,9 @@ async function runWithPouchDump(dumpName, functionToRun) {
   db.setMaxListeners(35);
   await createPouchViews(db, true, dumpName);
 
+  debugger;
   await functionToRun();
-  await wait();
+  await settled();
 
   let databasesToClean = [
     configDB,

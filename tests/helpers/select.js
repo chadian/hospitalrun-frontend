@@ -1,8 +1,10 @@
 import { run } from '@ember/runloop';
+import { find } from 'ember-native-dom-helpers';
+import { settled } from '@ember/test-helpers';
 import $ from 'jquery';
 
 async function select(selector, ...texts) {
-  let $options = findWithAssert(`${selector} option`);
+  let $options = $(find(`${selector} option`));
 
   $options.each(function() {
     let $option = $(this);
@@ -15,7 +17,7 @@ async function select(selector, ...texts) {
     });
   });
 
-  await wait();
+  await settled();
 }
 
 export default select;
